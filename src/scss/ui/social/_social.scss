@@ -1,0 +1,51 @@
+@use "../../base/variables" as v;
+@use "../../base/mixins" as m;
+
+/* Una buena opción para crear una sección para las redes sociales. */
+.sociales {
+  margin: 5rem 0;
+  display: flex;
+
+  @include m.tablet {
+    margin: 0;
+  }
+
+  &__enlace {
+    &::before {
+      content: "";
+      padding: 2rem;
+      display: inline-block;
+    }
+    /*  *= va a buscar en algun lugar del href.
+        $= busca uno que termina con la palabra que pasemos.
+        ^= busca el que inicia. */
+    &[href*="facebook.com"]::before {
+      background-image: url(../assets/icono_facebook.svg);
+    }
+    &[href*="twitter.com"]::before {
+      background-image: url(../assets/icono_twitter.svg);
+    }
+    &[href*="instagram.com"]::before {
+      background-image: url(../assets/icono_instagram.svg);
+    }
+    &[href*="youtube.com"]::before {
+      background-image: url(../assets/icono_youtube.svg);
+    }
+    &[href*="tiktok.com"]::before {
+      background-image: url(../assets/icono_tiktok.svg);
+    }
+  }
+
+  /* todo para ocultar en span que pusimos ahí en el HTML,
+  el display:block para que este ahí */
+  &__accesible {
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    display: block;
+  }
+}
